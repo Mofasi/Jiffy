@@ -1,1 +1,21 @@
+#!/usr/bin/env php
+<?php
+declare(strict_types=1);
 
+/**
+ * Jiffy Project CLI
+ * 
+ * Handles all project-specific commands
+ * Run with: ./jiffy <command>
+ */
+
+// Only run if executed directly
+if (php_sapi_name() !== 'cli') {
+    exit;
+}
+
+// Bootstrap CLI
+require __DIR__.'/app/Console/Kernel.php';
+
+$kernel = new App\Console\Kernel();
+$kernel->handle($argv);
